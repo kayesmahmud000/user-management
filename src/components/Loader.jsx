@@ -1,11 +1,21 @@
-"use client";
+"use client"
 
-import { Loader2 } from "lucide-react";
+import { motion } from "framer-motion"
 
-export default function Loader() {
+function Loader() {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-80 z-50">
-      <Loader2 className="h-12 w-12 animate-spin text-indigo-600" />
+    <div className="flex justify-center items-center p-10 rounded-lg h-screen">
+      <motion.div
+        className="w-12 h-12 rounded-full border-4 border-blue-200 border-t-blue-600"
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
     </div>
-  );
+  )
 }
+
+export default Loader
