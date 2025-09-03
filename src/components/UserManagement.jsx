@@ -1,8 +1,14 @@
+
+import getAllUserData from "@/lib/getUserData";
 import SearchInputWithButton from "./SearchInputWithButton";
 import UserDataTable from "./UserDataTable";
 
 
-const UserManagement = () => {
+const  UserManagement  = async() => {
+ const users =await getAllUserData()
+ console.log(users)
+
+
     return (
         <div className="bg-white w-full rounded-xl shadow-md px-5 py-5 min-h-[100px]">
             <h2 className="text-2xl font-semibold">User Management </h2>
@@ -11,7 +17,7 @@ const UserManagement = () => {
                 <SearchInputWithButton/>
             </div>
             <div>
-                <UserDataTable/>
+                <UserDataTable users={users}/>
             </div>
         </div>
     );
